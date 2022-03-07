@@ -7,22 +7,22 @@
 Open `http:localhost:8080`
 
 ## Table Structure
+
 ```sql
 create table user (
-id integer not null, 
-birth_date timestamp, 
-name varchar(255), 
+id integer not null,
+birth_date timestamp,
+name varchar(255),
 primary key (id)
 );
 
 create table post (
-id integer not null, 
-description varchar(255), 
-user_id integer, 
+id integer not null,
+description varchar(255),
+user_id integer,
 primary key (id)
 );
 ```
-
 
 ## Resources and URI Mappings
 
@@ -44,18 +44,24 @@ primary key (id)
 
 - Retrieve details of a post - GET /users/{id}/posts/{post_id}
 
+- Create a Department - POST /department
+
+- Retrieve one Department - GET /department/{id} -> /department/1
+
 ## Useful Links
 
 - Actuator
-    - http://localhost:8080/actuator
+  - http://localhost:8080/actuator
 - Swagger
-    - http://localhost:8080/swagger-ui.html
+  - http://localhost:8080/swagger-ui.html
 - H2-Console
-    - http://localhost:8080/h2-console
+  - http://localhost:8080/h2-console
 
-## Tools 
+## Tools
+
 - Java 8
 - Eclipse
 - Maven
 - Embedded Tomcat
 - REST Services Client
+- Lombok
