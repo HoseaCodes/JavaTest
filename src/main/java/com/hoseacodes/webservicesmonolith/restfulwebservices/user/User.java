@@ -1,13 +1,31 @@
 package com.hoseacodes.webservicesmonolith.restfulwebservices.user;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
+@Entity
 public class User {
-
+	
+	@Id
+	@GeneratedValue
 	private Integer id;
 	
+	@Size(min=2, message="Name should have atleast 2 characters")
 	private String name;
 	
+	@Past
+	private Date birthday;
+	
+	@OneToMany(mappedBy="user")
+	private List<Post> posts;
+
 	protected User() {
 		
 	}
@@ -42,7 +60,13 @@ public class User {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
+	
+	public List<Post> getPosts() {
+		return posts;
+	}
 
-	private Date birthday;
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
 	
 }
